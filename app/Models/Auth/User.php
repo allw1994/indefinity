@@ -3,6 +3,9 @@
 namespace App\Models\Auth;
 
 use App\Models\Traits\Uuid;
+use App\Models\Forum\Post;
+use App\Models\Forum\Comment;
+use App\Models\Forum\Response;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Auth\Traits\Scope\UserScope;
@@ -64,4 +67,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = ['full_name'];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    public function responses()
+    {
+        return $this->hasMany(Response::class);
+    }
+    public function addPost(Post $post)
+    {
+      $post->user_id = $this->id;
+      return $this->posts()->save($post);
+    }
 }
