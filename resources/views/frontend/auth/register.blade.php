@@ -15,39 +15,40 @@
                 <div class="card-body">
                     {{ html()->form('POST', route('frontend.auth.register.post'))->open() }}
                         <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.first_name'))->for('first_name') }}
-
+                            <div class="col-12 col-md-6"><!--first name-->
+                                <div class="form-group input-group">
+                                  <label class="has-float-label">
                                     {{ html()->text('first_name')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.first_name'))
                                         ->attribute('maxlength', 191) }}
-                                </div><!--col-->
-                            </div><!--row-->
-
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.last_name'))->for('last_name') }}
-
+                                    <span>{{ __('validation.attributes.frontend.first_name') }}</span>
+                                  </label>
+                                </div><!--form group-->
+                            </div><!--col first name-->
+                            <div class="col-12 col-md-6"><!--last name-->
+                                <div class="form-group input-group">
+                                  <label class="has-float-label">
                                     {{ html()->text('last_name')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.last_name'))
                                         ->attribute('maxlength', 191) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
+                                    <span>{{ __('validation.attributes.frontend.last_name') }}</span>
+                                  </label>
+                                </div><!--form group-->
+                            </div><!--col last name-->
                         </div><!--row-->
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
-                                    {{ html()->email('email')
+                                  <label class="has-float-label">
+                                    {{ html()->text('email')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
+                                        ->attribute('maxlength', 191) }}
+                                    <span>{{ __('validation.attributes.frontend.email') }}</span>
+                                  </label>
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -55,12 +56,13 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
-
-                                    {{ html()->password('password')
+                                  <label class="has-float-label">
+                                    {{ html()->text('password')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.password'))
-                                        ->required() }}
+                                        ->attribute('maxlength', 191) }}
+                                    <span>{{ __('validation.attributes.frontend.password') }}</span>
+                                  </label>
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -68,12 +70,13 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password_confirmation'))->for('password_confirmation') }}
-
-                                    {{ html()->password('password_confirmation')
+                                  <label class="has-float-label">
+                                    {{ html()->text('password_confirmation')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.password_confirmation'))
-                                        ->required() }}
+                                        ->attribute('maxlength', 191) }}
+                                    <span>{{ __('validation.attributes.frontend.password_confirmation') }}</span>
+                                  </label>
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
@@ -103,7 +106,7 @@
                             </div>
                         </div><!--/ .col -->
                     </div><!-- / .row -->
-                    
+
                 </div><!-- card-body -->
             </div><!-- card -->
         </div><!-- col-md-8 -->

@@ -13,30 +13,32 @@
                 </div><!--card-header-->
 
                 <div class="card-body">
-                    {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}
+                    {{ html()->form('POST', route('frontend.auth.login.post'))->class('form-signin')->open() }}
                         <div class="row">
                             <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
+                                <div class="form-group input-group">
+                                  <label class="has-float-label"><!--email address entry-->
                                     {{ html()->email('email')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.email'))
                                         ->attribute('maxlength', 191)
-                                        ->required() }}
+                                        ->required('autofocus') }}
+                                    <span>{{ __('validation.attributes.frontend.email') }}</span>
+                                  </label><!--email address entry-->
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
 
                         <div class="row">
                             <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
-
+                                <div class="form-group input-group">
+                                  <label class="has-float-label"><!--password entry-->
                                     {{ html()->password('password')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.frontend.password'))
                                         ->required() }}
+                                    <span>{{ __('validation.attributes.frontend.password') }}</span>
+                                  </label><!--password entry-->
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
