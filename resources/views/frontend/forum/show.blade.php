@@ -5,7 +5,7 @@
 
           <!-- Title and First Post -->
           <div class="jumbotron">
-            <span class="pull-right d-flex">
+            <span class="float-right d-flex">
               <div class="align-self-center mr-1">Submitted by </div>
               <div class="btn-group">
                     <button class="btn btn-lg">
@@ -57,9 +57,13 @@
                     <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('responsedeleted') }}</p>
                     @endif
                     @foreach ($comment->responses as $response)
-                    <div class="row">
-                      <div class="container col-sm-10 offset-sm-1 py-2">
-                        <span class="pull-right d-inline-flex">
+                    <div class="row mx-0">
+                      <div class="container col-sm-10 offset-sm-1 py-4">
+                        <div class="container py-3 clearfix d-flex">
+                          <div class="d-inline-flex w-100">
+                          <div class="align-self-center mr-1">{{ $response->body }}</div>
+                          </div>
+                        <span class="pull-right">
                             <div class=" btn-group">
                               <button class="btn btn-xs">
                                   <span class="fa fa-picture"></span> {{ $response->user->name }}
@@ -72,7 +76,8 @@
                               {{ Form::close() }}
                             </div>
                         </span>
-                        <p class="d-inline-flex">{{ $response->body }}</p>
+                      </div>
+
                       </div>
                       </div>
                       @endforeach
